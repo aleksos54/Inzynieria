@@ -3,23 +3,29 @@
 #include <vector>
 #include <cstring>
 #include <fstream>
-#include "KartaCzytelnika.h"
+#include "Ksiazka.h"
 
 using namespace std;
 
-class Czytelnik : public KartaCzytelnika
+
+
+class Czytelnik
 {	
 	
 
 	public:
 		string imie;
 		string nazwisko;
+		string IDkarty;
+		string haslo;
+		vector<Ksiazka>ksiazki_czytelnika;
+		
+	
+	
 
 		
-		void rejestruj();
-		void usunKarte();
 
-		Czytelnik(int k, string i, string n);
+		Czytelnik(string k,string h, string i, string n);
 		~Czytelnik();
 	protected:
 };

@@ -32,7 +32,7 @@ void::Ksiazka::wypisz_autorow_ksiazki() {
 
 	for (int i = 0; i < tab_autorow.size(); i++) {
 		cout << this->tab_autorow[i].imie<<"  ";
-		cout << this->tab_autorow[i].nazwisko<<endl;
+		cout << this->tab_autorow[i].nazwisko;
 	}
 	
 
