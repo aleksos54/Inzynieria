@@ -43,9 +43,9 @@ int loguj()
 
 	string haslo;
 
-	cout<<"Podaj login ";	cin>>IDKarty1;
+	cout<<"Podaj login: ";	cin>>IDKarty1;
 
-	cout<<"Podaj haslo ";	cin>>haslo;
+	cout<<"Podaj haslo: ";	cin>>haslo;
 
 	cout<<endl;
 
@@ -117,7 +117,7 @@ void dostepnosc(){
 	cout<<endl;
 	cout<<setw(8)<<"LISTA DOSTEPNYCH KSIAZEK"<<endl;
 	for(int i=0; i<tab_egzemplarz.size();i++){
-		 cout<<" '' "<<tab_egzemplarz[i].first.tytul<<" '' "<<setw(10);
+		 cout<<" * "<<tab_egzemplarz[i].first.tytul<<" * "<<setw(10);
 		 tab_egzemplarz[i].first.wypisz_autorow_ksiazki();
 		 cout<<setw(4)<<tab_egzemplarz[i].second<<endl;
 	}
@@ -152,7 +152,6 @@ void rezerwuj(string tytul, Bibliotekarz *b1,Czytelnik *c2)
 	{
 		
 		if(tytul==tab_egzemplarz[i].first.tytul && tab_egzemplarz[i].second==0){
-			cout<<"aaa";
 			b1->tab_rezerwacji.push_back(tab_egzemplarz[i].first);
 			cout<<"Zarezerwowana"<<endl;
 		
@@ -174,7 +173,7 @@ void wypisz_zarezerwowane(Bibliotekarz *b1, Czytelnik *c2){
 	cout<<endl;
 	cout<<setw(8)<<"LISTA ZAREZERWOWANYCH KSIAZEK"<<endl;
 	for(int i=0; i<b1->tab_rezerwacji.size();i++){
-		 cout<<" '' "<<b1->tab_rezerwacji[i].tytul<<" '' "<<setw(4);
+		 cout<<" # "<<b1->tab_rezerwacji[i].tytul<<" # "<<setw(4);
 		 b1->tab_rezerwacji[i].wypisz_autorow_ksiazki();
 		 
 	}
@@ -247,18 +246,20 @@ int main() {
   
 
 start:
-
-	cout<<"---Witaj w systemie bibliotecznym---"<<endl;
+	cout<<"|----------------------------------|"<<endl;
+	cout<<"|  Witaj w systemie bibliotecznym  |"<<endl;
+	cout<<"|----------------------------------|"<<endl<<endl;
 
 	cout<<" 1. Zarejestruj sie "<<endl;
 
 	cout<<" 2. Zaloguj sie "<<endl;
 	
-	cout<< " 3. KONIEC"<<endl;
+	cout<< " 3. KONIEC "<<endl<<endl;
 
 	int wybor;
-
+	
 	cin>>wybor;
+	cout<<endl;
 
 	
 
@@ -308,14 +309,15 @@ start:
 inter1:
 
 	
+	cout<<"|----------------------------------|"<<endl;
+	cout<<"|         Panel czytelnika         |"<<endl;
+	cout<<"|----------------------------------|"<<endl<<endl;
 
-	cout<<"---Panel czytelnika---"<<endl;
-
-	cout<<" 1. Sprawdz dostepnosc"<<endl;
+	cout<<" 1. Sprawdz dostepnosc "<<endl;
 
 	cout<<" 2. Wypozycz ksiazke "<<endl;
 
-	cout<<" 3. Zarezerwuj ksiazke "<<endl;
+	cout<<" 3. Zarezerwuj ksiazke "<<endl<<endl;
 
 	//cout<<" 3. Oddaj ksiazke "<<endl;
 
@@ -353,7 +355,7 @@ inter1:
 
 		case 3:
 			
-			cout<<"Podaj tytul ksiazki jaka chcesz zarezerwowac"<<endl;
+			cout<<"Podaj tytul ksiazki jaka chcesz zarezerwowac:"<<endl;
 			cin>>tytul;
 			rezerwuj(tytul, b2, c2);
 			goto start;
@@ -369,14 +371,14 @@ inter1:
 	
 
 interad:
-
-	cout<<"---Panel bibliotekarza---"<<endl;
-
+	cout<<"|----------------------------------|"<<endl;
+	cout<<"|        Panel bibliotekarza       |"<<endl;
+	cout<<"|----------------------------------|"<<endl<<endl;		
 	cout<<" 1. Dodaj ksiazke "<<endl;
 
 	cout<<" 2. Wypisz zarezerwowane "<<endl;
 	
-	cout<<" 3. Cofnij "<<endl;
+	cout<<" 3. Cofnij "<<endl<<endl;
 	
 	int wybor2;
 
@@ -453,7 +455,7 @@ void rejestruj()
 
 	cout<<"Podaj IDKarty:";		cin>>IDKarty;
 
-	cout<<"Podaj haslo";		cin>>haslo;
+	cout<<"Podaj haslo:";		cin>>haslo;
 
 	dane.open("data.txt", ios::app);
 
